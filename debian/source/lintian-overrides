@@ -1,0 +1,4 @@
+# Same author
+add-component-copyright install-artifact-from-github *
+# Match types-*/*
+add-component-copyright types-re2 *

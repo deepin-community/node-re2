@@ -1,0 +1,18 @@
+version=4
+opts=\
+dversionmangle=s/@DEB_EXT@//,\
+filenamemangle=s/.*?(\d[\d\.-]*@ARCHIVE_EXT@)/node-re2-$1/ \
+ https://github.com/uhop/node-re2/tags .*/archive/.*/v?([\d\.]+).tar.gz group
+
+
+opts=\
+component=install-artifact-from-github,\
+ctype=nodejs,\
+dversionmangle=auto,\
+filenamemangle=s/.*?(\d[\d\.-]*@ARCHIVE_EXT@)/node-install-artifact-from-github-$1/ \
+ https://github.com/uhop/install-artifact-from-github/tags .*/archive.*/v?([\d\.]+).tar.gz checksum
+
+# It is not recommended use npmregistry. Please investigate more.
+# Take a look at https://wiki.debian.org/debian/watch/
+opts="searchmode=plain,component=types-re2,ctype=nodejs,pgpmode=none,filenamemangle=s/^.*?(\d[\d\.-]*@ARCHIVE_EXT@)/node-types-re2-$1/" \
+ https://registry.npmjs.org/@types/re2 https://registry.npmjs.org/@types/re2/-/re2-([\d\.]+)@ARCHIVE_EXT@ checksum

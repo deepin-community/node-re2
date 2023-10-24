@@ -1,0 +1,12 @@
+node_modules/
+build/
+report/
+coverage/
+.AppleDouble
+vendor/*
+!vendor/re2/*
+!vendor/util/*
+.vscode/
+.development
+.developmentx
+.xdevelopment

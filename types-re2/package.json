@@ -1,0 +1,14 @@
+{
+    "name": "@types/re2",
+    "version": "1.10.8",
+    "typings": null,
+    "description": "Stub TypeScript definitions entry for re2, which provides its own types definitions",
+    "main": "",
+    "scripts": {},
+    "author": "",
+    "repository": "https://github.com/uhop/node-re2",
+    "license": "MIT",
+    "dependencies": {
+        "re2": "*"
+    }
+}
