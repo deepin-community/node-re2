@@ -1,4 +1,25 @@
 #!/usr/bin/make -f
+# -*- makefile -*-
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 
 %:
 	dh $@
+
+override_dh_auto_configure:
+	dh_auto_configure --buildsystem=nodejs
+	node-gyp configure
+
+override_dh_auto_build:
+	node-gyp build
+
+override_dh_install:
+	dh_install
+	find $(CURDIR)/debian/ -name *.node -exec chmod 644 '{}' \;
+
+override_dh_fixperms:
+	dh_fixperms
+	chmod +x debian/node-re2/usr/lib/*/nodejs/install-artifact-from-github/bin/*.js
